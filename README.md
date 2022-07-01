@@ -39,6 +39,8 @@ Here are the most 7 insights useful for chinook store :
 
 * What meadia type has most popularity?
 
+#### And after that i imported the result from the server to connect with EXCEL to make the presentation.
+
 ## Database and Tools :
 
 * PostgreSQL.
