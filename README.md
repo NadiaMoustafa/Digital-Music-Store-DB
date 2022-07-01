@@ -16,3 +16,12 @@ The Chinook Database holds information about music store and it contains about 1
 |Customer table|customers's info|
 
 And some other tables.., And here it is "ERD Digram".
+
+![ERD](https://user-images.githubusercontent.com/94796220/176931184-106fd5b5-0f09-4294-a976-71b395973bf0.png)
+
+## Output Insights :
+
+By doing analysis on this database i extracted a lot of useful insights to chinook store like : countries with most invoices, city with best customers, finding out who the best customer is and etc.., and i found answers about questions are not shown in presentation but there are in Queries.TXT you can take a look!
+
+Here are the most 7 insights useful for chinook store :
+* 
