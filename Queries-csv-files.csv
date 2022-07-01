@@ -1,0 +1,92 @@
+names_of_customers,customers_spent
+Helena,49.62
+Richard,47.62
+Luis,46.62
+Ladislav,45.62
+Hugh,45.62
+Julia,43.62
+Frank,43.62
+Fynn,43.62
+Astrid,42.62
+Victor,42.62
+Terhi,41.62
+František,40.62
+Isabelle,40.62
+Johannes,40.62
+Jack,39.62
+João,39.62
+Luís,39.62
+François,39.62
+Bjørn,39.62
+Dan,39.62
+names_of_composers,num_of_albums
+Steve Harris,80
+U2,44
+Jagger/Richards,35
+Billy Corgan,31
+Kurt Cobain,26
+Bill Berry-Peter Buck-Mike Mills-Michael Stipe,25
+The Tea Party,24
+Miles Davis,23
+Gilberto Gil,23
+Chris Cornell,23
+names_of_artists,names_of_songs,songs_revenue
+Iron Maiden,The Trooper,4.95
+Aquaman,Pilot,3.98
+Battlestar Galactica,The Woman King,3.98
+Heroes,How to Stop an Exploding Man,3.98
+Heroes,The Fix,3.98
+names_of_media,songs_revenue
+MPEG audio file,1956.24000000002
+Protected MPEG-4 video file,220.89
+Protected AAC audio file,144.54
+Purchased AAC audio file,3.96
+AAC audio file,2.97
+names_of_artists,songs_revenue
+Iron Maiden,138.6
+U2,105.93
+Metallica,90.0899999999999
+Led Zeppelin,86.1299999999999
+Lost,81.59
+The Office,49.75
+Os Paralamas Do Sucesso,44.55
+Deep Purple,43.56
+Faith No More,41.58
+Eric Clapton,39.6
+names_of_artists,num_of_songs,names_of_songs
+The Police,30,Rock
+David Coverdale,20,Rock
+Ed Motta,20,Rock
+Green Day,20,Rock
+Sir Georg Solti & Wiener Philharmoniker,20,Rock
+Scholars Baroque Ensemble,18,Rock
+Antal Doráti & London Symphony Orchestra,17,Rock
+Berliner Philharmoniker & Hans Rosbaud,17,Rock
+Charlie Brown Jr.,17,Rock
+Corinne Bailey Rae,17,Rock
+names_of_genres,songs_revenue
+Rock,826.650000000006
+Latin,382.140000000002
+Metal,261.360000000001
+Alternative & Punk,241.560000000001
+TV Shows,93.5299999999999
+Jazz,79.2
+Blues,60.39
+Drama,57.71
+R&B/Soul,40.59
+Classical,40.59
+Sci Fi & Fantasy,39.8
+Reggae,29.7
+Pop,27.72
+Soundtrack,19.8
+Comedy,17.91
+Hip Hop/Rap,16.83
+Bossa Nova,14.85
+Alternative,13.86
+World,12.87
+Science Fiction,11.94
+Heavy Metal,11.88
+Electronica/Dance,11.88
+Easy Listening,9.9
+Rock And Roll,5.94
+

@@ -1,0 +1,148 @@
+/* Query 1 */
+SELECT Artist.Name names_of_artists, Track.Name names_of_songs, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) songs_revenue
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.ArtistId
+JOIN Track
+ON Album.AlbumId = Track.AlbumId
+JOIN InvoiceLine
+ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY 1,2
+ORDER BY 3 DESC
+LIMIT 5;
+
+
+/* Query 2 */ 
+SELECT Genre.Name names_of_genres, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) songs_revenue
+FROM Genre
+JOIN Track
+ON Track.GenreId = Genre.GenreId
+JOIN InvoiceLine
+ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+/* Query 3 */
+SELECT Artist.Name names_of_artists, COUNT(Track.TrackId) num_of_songs, Genre.Name names_of_songs
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.AlbumId
+JOIN Track
+ON Album.AlbumId = Track.AlbumId
+JOIN Genre
+ON Track.GenreId = Genre.GenreId
+WHERE Genre.Name LIKE "Rock"
+GROUP BY 1,3
+ORDER BY 2 DESC
+LIMIT 10;
+
+
+/* Query 4 */ 
+SELECT Track.Composer names_of_composers, COUNT(Album.AlbumId) num_of_albums
+FROM Track
+JOIN Album
+ON Track.AlbumId = Album.AlbumId
+WHERE Track.Composer NOT LIKE "NULL"
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
+
+/* Query 5 */ 
+SELECT Customer.FirstName names_of_customers, SUM(Invoice.Total) customers_spent
+FROM Customer
+JOIN Invoice
+ON Customer.CustomerId = Invoice.CustomerId
+GROUP BY Customer.CustomerId
+ORDER BY 2 DESC
+LIMIT 20;
+
+
+/* Query 6 */ 
+SELECT Artist.Name names_of_artists, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) songs_revenue
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.ArtistId
+JOIN Track
+ON Album.AlbumId = Track.AlbumId
+JOIN InvoiceLine
+ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
+
+/* Query 7 */ 
+SELECT MediaType.Name names_of_media, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) songs_revenue
+FROM MediaType
+JOIN Track
+ON MediaType.MediaTypeId = Track.MediaTypeId
+JOIN InvoiceLine
+ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY 1 ORDER BY 2 DESC;
+
+
+
+/* EXTRA Queries */
+
+/* Who listeners to the "Rock" genre most? */
+SELECT DISTINCT email,firstname, lastname, TrackId
+FROM customer
+JOIN invoice ON customer.customerid = invoice.customerid
+JOIN invoiceline ON invoice.invoiceid = invoiceline.invoiceid
+WHERE trackid IN(
+	SELECT trackid FROM track
+	JOIN genre ON track.genreid = genre.genreid
+	WHERE genre.name LIKE 'Rock'
+)
+ORDER BY TrackId DESC
+Limit 5;
+
+
+
+/* Who is writing the rock music? */
+SELECT artist.artistid, artist.name,COUNT(artist.artistid) AS number_of_songs
+FROM track
+JOIN album ON album.albumid = track.albumid
+JOIN artist ON artist.artistid = album.artistid
+JOIN genre ON genre.genreid = track.genreid
+WHERE genre.name LIKE 'Rock'
+GROUP BY artist.artistid
+ORDER BY number_of_songs DESC
+LIMIT 10;
+
+
+
+/* The most popular music Genre for each country */
+SELECT COUNT(*) AS purchases_per_genre, customer.country, genre.name, genre.genreid
+FROM invoiceline
+JOIN invoice ON invoice.invoiceid = invoiceline.invoiceid
+JOIN customer ON customer.customerid = invoice.customerid
+JOIN track ON track.trackid = invoiceline.trackid
+JOIN genre ON genre.genreid = track.genreid
+GROUP BY 2,3,4
+ORDER BY 2;
+
+
+
+/* Which customer that has spent the most on music for each country */
+WITH RECURSIVE 
+	tbl_customter_with_country AS (
+		SELECT customer.customerid,firstname,lastname,billingcountry,SUM(total) AS total_spending
+		FROM invoice
+		JOIN customer ON customer.customerid = invoice.customerid
+		GROUP BY 1,2,3,4
+		ORDER BY 2,3 DESC),
+
+	tbl_country_max_spending AS(
+		SELECT billingcountry,MAX(total_spending) AS max_spending
+		FROM tbl_customter_with_country
+		GROUP BY billingcountry)
+
+SELECT tbl_cc.billingcountry, tbl_cc.total_spending,tbl_cc.firstname,tbl_cc.lastname,tbl_cc.customerid
+FROM tbl_customter_with_country tbl_cc
+JOIN tbl_country_max_spending tbl_ms
+ON tbl_cc.billingcountry = tbl_ms.billingcountry
+WHERE tbl_cc.total_spending = tbl_ms.max_spending
+ORDER BY 1;
