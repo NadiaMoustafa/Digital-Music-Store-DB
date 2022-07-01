@@ -43,6 +43,6 @@ Here are the most 7 insights useful for chinook store :
 
 * PostgreSQL.
 
-* SQLLight.
+* DB browser (SQLite).
 
 * EXCEL (For charts).
