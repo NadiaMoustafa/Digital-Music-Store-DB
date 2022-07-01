@@ -38,3 +38,11 @@ Here are the most 7 insights useful for chinook store :
 * Which artists earn most?
 
 * What meadia type has most popularity?
+
+## Database and Tools :
+
+* PostgreSQL.
+
+* SQLLight.
+
+* EXCEL (For charts).
