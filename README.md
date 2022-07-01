@@ -24,4 +24,17 @@ And some other tables.., And here it is "ERD Digram".
 By doing analysis on this database i extracted a lot of useful insights to chinook store like : countries with most invoices, city with best customers, finding out who the best customer is and etc.., and i found answers about questions are not shown in presentation but there are in Queries.TXT you can take a look!
 
 Here are the most 7 insights useful for chinook store :
-* 
+
+* Who are the top 5 artists?
+
+* What is the most popular genre?
+
+* Top artist in Rock genre.
+
+* Who is the popular composer?
+
+* Who is the big fan?
+
+* Which artists earn most?
+
+* What meadia type has most popularity?
